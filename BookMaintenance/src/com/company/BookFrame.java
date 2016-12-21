@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import javax.swing.*;
-import javax.swing.tree.ExpandVetoException;
 
 public class BookFrame extends BookDB {
     JFrame f = new JFrame();
@@ -225,9 +224,12 @@ public class BookFrame extends BookDB {
                     if (set.next()){
                         prevBtn.setEnabled(false);
                         nextBtn.setEnabled(true);
+                        updateBtn.setEnabled(false);
+                        addBtn.setEnabled(true);
                         codeTxt.setText(set.getString("code"));
                         titleTxt.setText(set.getString("title"));
                         priceTxt.setText(set.getString("price"));
+                        JOptionPane.showMessageDialog(null,"Record Added");
                     }
 
                 }catch (Exception exc){
