@@ -47,16 +47,54 @@ public class BookDB {
         books = ParseSet(set);
     }
 
-    public void deleteRecord(){
-        set = Query("DELETE FROM Book WHERE EXISTS (SELECT * FROM Book WHERE Book.code =" + currentBook.code +")");
+    public void deleteRecord() {
+        set = Query("DELETE FROM Book WHERE EXISTS (SELECT * FROM Book WHERE Book.code =" + currentBook.code + ")");
         // sync
         // TODO: change the currentBook to be next one, if successfully delete current book
         loadDB();
+        int count = books.size();
+        // when the currentBook is the previous last one
+        if (index > count - 1) {
+            index = count - 1;
+        }
+        currentBook = books.get(index);
     }
 
-    public void addRecord(Book aBook){
-        set = Query("INSERT INTO Book VALUES (" +aBook.code + ", " + aBook.title + ", " + aBook.price + ")");
+    public void addRecord(Book aBook) {
+        set = Query("INSERT INTO Book VALUES (" + aBook.code + ", " + aBook.title + ", " + aBook.price + ")");
         loadDB();
+        int count = books.size();
+        // add to the last of the table successfully
+        if (index < count - 1) {
+            index = count - 1;
+        }
+        currentBook = books.get(index);
+    }
+
+    public void moveFirst() {
+        if (books.size() > 0) {
+            index = 0;
+            currentBook = books.get(index);
+        }
+    }
+
+    public void moveLast() {
+        int bookCount = books.size();
+        if (bookCount > 0) {
+            index = bookCount - 1;
+            currentBook = books.get(index);
+        }
+    }
+
+    public void movePrevious() {
+        if (index > 0) {
+            index--;
+            currentBook = books.get(index);
+        }
+    }
+
+    public void moveNext() {
+
     }
 
     private ResultSet Query(String str) {
