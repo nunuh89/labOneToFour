@@ -7,6 +7,7 @@ package com.company;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import javax.swing.*;
 import javax.swing.tree.ExpandVetoException;
 
@@ -18,10 +19,12 @@ public class BookFrame extends BookDB {
     JTextField codeTxt=new JTextField(8);
     JTextField titleTxt=new JTextField(20);
     JTextField priceTxt=new JTextField(5);
+
     JButton addBtn = new JButton("Add");
     JButton updateBtn = new JButton("Update");
     JButton deleteBtn = new JButton("Delete");
     JButton exitBtn = new JButton("Exit");
+
     JButton firstBtn = new JButton("First");
     JButton prevBtn = new JButton("Prev");
     JButton nextBtn = new JButton("Next");
@@ -83,6 +86,12 @@ public class BookFrame extends BookDB {
     }
 
     public void BtnAction(){
+        exitBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
         nextBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -94,7 +103,6 @@ public class BookFrame extends BookDB {
                     priceTxt.setText(set.getString("price"));
                 }
                 else{
-                    //// TODO: 12/21/16  disable the veRy button to do next
                     set.previous();
                     nextBtn.setEnabled(false);
                 }
@@ -115,9 +123,63 @@ public class BookFrame extends BookDB {
                         priceTxt.setText(set.getString("price"));
                     }
                     else{
-                        //// TODO: 12/21/16  disable the veRy button to do next
                         set.next();
                         prevBtn.setEnabled(false);
+                    }
+                } catch (Exception exc){
+                    exc.printStackTrace();
+                }
+            }
+        });
+
+        lastBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    set.last();
+                    codeTxt.setText(set.getString("code"));
+                    titleTxt.setText(set.getString("title"));
+                    priceTxt.setText(set.getString("price"));
+                    // // TODO: 12/21/16 when there's only one; both shall be disabled
+                    prevBtn.setEnabled(true);
+                    nextBtn.setEnabled(false);
+                } catch (Exception exc){
+                    exc.printStackTrace();
+                }
+            }
+        });
+
+        firstBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    set.first();
+                    codeTxt.setText(set.getString("code"));
+                    titleTxt.setText(set.getString("title"));
+                    priceTxt.setText(set.getString("price"));
+                    // // TODO: 12/21/16 when there's only one; both shall be disabled
+                    nextBtn.setEnabled(true);
+                    prevBtn.setEnabled(false);
+                } catch (Exception exc){
+                    exc.printStackTrace();
+                }
+            }
+        });
+
+        deleteBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    set.deleteRow();
+                    statement.close();
+                    set.close();
+                    statement = client.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+                    set = statement.executeQuery("SELECT * FROM BOOK");
+                    if (set.next()){
+                        prevBtn.setEnabled(true);
+                        codeTxt.setText(set.getString("code"));
+                        titleTxt.setText(set.getString("title"));
+                        priceTxt.setText(set.getString("price"));
                     }
                 } catch (Exception exc){
                     exc.printStackTrace();
