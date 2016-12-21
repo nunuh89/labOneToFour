@@ -56,12 +56,15 @@ public class BookFrame extends BookDB {
         JPanel p4 = new JPanel();
         p4.add(addBtn);
         p4.add(updateBtn);
+       // update will be enabled after pressing Add button
+       updateBtn.setEnabled(false);
         p4.add(deleteBtn);
         p4.add(exitBtn);
 
         JPanel p5= new JPanel();
         p5.add(firstBtn);
         p5.add(prevBtn);
+       // always show the first one when init, so previous button disabled
        prevBtn.setEnabled(false);
         p5.add(nextBtn);
         p5.add(lastBtn);
@@ -176,7 +179,8 @@ public class BookFrame extends BookDB {
                     statement = client.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
                     set = statement.executeQuery("SELECT * FROM BOOK");
                     if (set.next()){
-                        prevBtn.setEnabled(true);
+                        prevBtn.setEnabled(false);
+                        nextBtn.setEnabled(true);
                         codeTxt.setText(set.getString("code"));
                         titleTxt.setText(set.getString("title"));
                         priceTxt.setText(set.getString("price"));
@@ -186,6 +190,53 @@ public class BookFrame extends BookDB {
                 }
             }
         });
+
+        addBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // clear all textfields
+                updateBtn.setEnabled(true);
+                addBtn.setEnabled(false);
+                codeTxt.setText("");
+                titleTxt.setText("");
+                priceTxt.setText("");
+            }
+        });
+
+        updateBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String fcode = codeTxt.getText();
+                String ftitle = titleTxt.getText();
+                String fprice =priceTxt.getText();
+
+                try{
+                    set.moveToInsertRow();
+                    set.updateString("code",fcode);
+                    set.updateString("title",ftitle);
+                    set.updateString("price",fprice);
+                    set.insertRow();
+
+                    statement.close();
+                    set.close();
+                    statement = client.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+                    set = statement.executeQuery("SELECT * FROM BOOK");
+
+                    if (set.next()){
+                        prevBtn.setEnabled(false);
+                        nextBtn.setEnabled(true);
+                        codeTxt.setText(set.getString("code"));
+                        titleTxt.setText(set.getString("title"));
+                        priceTxt.setText(set.getString("price"));
+                    }
+
+                }catch (Exception exc){
+                    exc.printStackTrace();
+                }
+
+            }
+        });
+
 
     }
 }
