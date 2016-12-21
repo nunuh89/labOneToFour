@@ -5,7 +5,10 @@ package com.company;
  */
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
+import javax.swing.tree.ExpandVetoException;
 
 public class BookFrame extends BookDB {
     JFrame f = new JFrame();
@@ -25,7 +28,8 @@ public class BookFrame extends BookDB {
     JButton lastBtn= new JButton("Last");
 
     public BookFrame() {
-            frame();
+        frame();
+        BtnAction();
     }
 
    public  void frame(){
@@ -55,6 +59,7 @@ public class BookFrame extends BookDB {
         JPanel p5= new JPanel();
         p5.add(firstBtn);
         p5.add(prevBtn);
+       prevBtn.setEnabled(false);
         p5.add(nextBtn);
         p5.add(lastBtn);
 
@@ -74,6 +79,51 @@ public class BookFrame extends BookDB {
         }catch (Exception e){
             e.printStackTrace();
         }
+
+    }
+
+    public void BtnAction(){
+        nextBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                if (set.next()){
+                    prevBtn.setEnabled(true);
+                    codeTxt.setText(set.getString("code"));
+                    titleTxt.setText(set.getString("title"));
+                    priceTxt.setText(set.getString("price"));
+                }
+                else{
+                    //// TODO: 12/21/16  disable the veRy button to do next
+                    set.previous();
+                    nextBtn.setEnabled(false);
+                }
+                } catch (Exception exc){
+                    exc.printStackTrace();
+                }
+            }
+        });
+
+        prevBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    if (set.previous()){
+                        nextBtn.setEnabled(true);
+                        codeTxt.setText(set.getString("code"));
+                        titleTxt.setText(set.getString("title"));
+                        priceTxt.setText(set.getString("price"));
+                    }
+                    else{
+                        //// TODO: 12/21/16  disable the veRy button to do next
+                        set.next();
+                        prevBtn.setEnabled(false);
+                    }
+                } catch (Exception exc){
+                    exc.printStackTrace();
+                }
+            }
+        });
 
     }
 }

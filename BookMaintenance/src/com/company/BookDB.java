@@ -30,12 +30,12 @@ public class BookDB {
             statement = client.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
             set = statement.executeQuery("SELECT * FROM BOOK");
 
-            while (set.next()){
-                String code = set.getString("code");
-                String title = set.getString("title");
-                double price = set.getDouble("price");
-                System.out.println(code + " "+title+" "+price);
-            }
+//            while (set.next()){
+//                String code = set.getString("code");
+//                String title = set.getString("title");
+//                double price = set.getDouble("price");
+//                System.out.println(code + " "+title+" "+price);
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -43,7 +43,7 @@ public class BookDB {
 
 
     public static void main(String args[]) {
-        new BookDB();
+        //new BookDB();
         new BookFrame();
     }
 }
