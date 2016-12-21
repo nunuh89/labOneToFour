@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f53c69a7-665a-4f7b-afa3-94ea6f4cb294" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/Book.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Book.java" afterPath="$PROJECT_DIR$/src/com/company/Book.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/BookDB.java" afterPath="$PROJECT_DIR$/src/com/company/BookDB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Main.java" afterPath="$PROJECT_DIR$/src/com/company/Main.java" />
     </list>
     <ignored path="BookMaintenance.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,38 +27,39 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+            <state relative-caret-position="240">
+              <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BookDB.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BookDB.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/BookDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+            <state relative-caret-position="870">
+              <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
               <folding>
-                <element signature="e#243#244#0" expanded="true" />
-                <element signature="e#268#269#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#483#484#0" expanded="true" />
+                <element signature="e#508#509#0" expanded="true" />
+                <element signature="e#2063#2069#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Book.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Book.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Book.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+            <state relative-caret-position="154">
+              <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
               <folding>
-                <element signature="e#448#449#0" expanded="true" />
-                <element signature="e#480#481#0" expanded="true" />
-                <element signature="e#511#512#0" expanded="true" />
-                <element signature="e#544#545#0" expanded="true" />
-                <element signature="e#575#576#0" expanded="true" />
-                <element signature="e#608#609#0" expanded="true" />
+                <element signature="e#490#491#0" expanded="true" />
+                <element signature="e#522#523#0" expanded="true" />
+                <element signature="e#555#556#0" expanded="true" />
+                <element signature="e#587#588#0" expanded="true" />
+                <element signature="e#620#621#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -705,36 +704,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+          <folding>
+            <element signature="e#490#491#0" expanded="true" />
+            <element signature="e#522#523#0" expanded="true" />
+            <element signature="e#555#556#0" expanded="true" />
+            <element signature="e#587#588#0" expanded="true" />
+            <element signature="e#620#621#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+        <state relative-caret-position="240">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/BookDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        <state relative-caret-position="870">
+          <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
           <folding>
-            <element signature="e#243#244#0" expanded="true" />
-            <element signature="e#268#269#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          <folding>
-            <element signature="e#448#449#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-            <element signature="e#511#512#0" expanded="true" />
-            <element signature="e#544#545#0" expanded="true" />
-            <element signature="e#575#576#0" expanded="true" />
-            <element signature="e#608#609#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#508#509#0" expanded="true" />
+            <element signature="e#2063#2069#0" expanded="true" />
           </folding>
         </state>
       </provider>

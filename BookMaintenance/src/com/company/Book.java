@@ -8,23 +8,24 @@ public class Book {
     public String title;
     public double price;
 
-    public Book createBook(String bookCode, String booktitle, double bookPrice){
+    public static Book createBook(String bookCode, String booktitle, double bookPrice) {
         Book aBook = new Book();
         aBook.code = bookCode;
         aBook.title = booktitle;
         aBook.price = bookPrice;
         return aBook;
     }
+
     // getter methods
-    public String getCode(){
+    public String getCode() {
         return this.code;
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return this.title;
     }
 
-    public double getPrice(){
+    public double getPrice() {
         return this.price;
     }
 }
